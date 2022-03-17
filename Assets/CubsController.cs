@@ -15,9 +15,7 @@ public class CubsController : MonoBehaviour
         cubs = new Cubs();
         cubs.cuboidName = gameObject.name;
         cubs.maxHealth = Random.Range(100, 150);
-        cubs.health = cubs.maxHealth;
-
-        
+        cubs.health = cubs.maxHealth;      
     }
 
     private void Update()
@@ -29,10 +27,10 @@ public class CubsController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            ConsolePrintCurrentHealth();
             cubs.HealCuboid(Random.Range(10, 50));
             Debug.Log(cubs.cuboidName + " is happy that you heal it!");
-            ConsolePrintCurrentHealth();
-            UpdateHPBar();
+                   
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -43,10 +41,9 @@ public class CubsController : MonoBehaviour
                     isAlive = false;
                     KillCubs();
                 }
-                cubs.HurtCuboid(Random.Range(10, 50));
-                Debug.Log("You are hurting " + cubs.cuboidName + "!");
                 ConsolePrintCurrentHealth();
-                UpdateHPBar();                
+                cubs.HurtCuboid(Random.Range(10, 50));
+                Debug.Log("You are hurting " + cubs.cuboidName + "!");                           
             }         
         }
     }

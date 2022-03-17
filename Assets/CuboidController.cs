@@ -20,13 +20,13 @@ public class CuboidController : MonoBehaviour
     void SetUpCuboid()
     {
         //ABSTRACTION
-           cuboid = new Cuboid();
+        cuboid = new Cuboid();
         cuboid.cuboidName = gameObject.name;
         cuboid.maxHealth = Random.Range(100, 300);
         cuboid.health = cuboid.maxHealth;
-        //canse use Random.range in constructor somehow, so I assigned it all one by one, making sure the current health is like the random max health
+        //can't use Random.range in constructor somehow, so I assigned it all one by one, making sure the current health is like the random max health
+
         int i = Random.Range(0, color.Length);
-        Debug.Log(i);
         cuboid.color = color[i];
         gameObject.GetComponent<Renderer>().material.color = cuboid.color;
     }
